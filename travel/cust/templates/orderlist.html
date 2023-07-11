@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">ADORN TRAVELS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'p' %}">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#"></a>
+            </li>
+          </ul>
+         
+            <a href="{% url 'f' %}">Log out</a>
+      
+        </div>
+      </nav>
+
+
+
+
+    
+{%for i in orders%}
+<!-- <div class="no-gutters bg-secondary mb-5" >
+    <div class="row">
+        <div class="col">
+            <img src="{{i.product.image.url}}" alt="" height="200px" width="600px">
+        </div>
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item">{{i.product.name}}</li>
+                <li class="list-group-item">{{i.product.description}}({{i.totalamnt}})</li>
+                <li class="list-group-item">{{i.product.startingrate}}</li>
+                <li class="list-group-item">
+                    {% if i.status == 'cancel' %}
+                     <p class="text-danger">order cancel</p>
+                    {% else %}
+                       {% if i.status == deliverd %}
+                        <p class="text-center">order deliverd</p>
+                       {% else %}
+                      <a href="{% url 'cncl' i.id %}" class="text-danger">cancel order</a>
+                       {% endif %}
+                    {% endif %}
+                </li>
+
+            </ul>
+        </div>
+     </div>
+</div> -->
+
+<section class="events-section events-listing-section section-bg section-padding" id="section_3">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-12">
+                <h2 class="mb-3"> <i class="fas fa-fonticons fa-lg  "></i> </h2>
+            </div>
+
+            <div class="row custom-block mb-3">
+                <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+                    <div class="custom-block-date-wrap d-flex d-lg-block d-md-block align-items-center mt-3 mt-lg-0 mt-md-0">
+                        <!-- <h6 class="custom-block-date mb-lg-1 mb-0 me-3 me-lg-0 me-md-0">24</h6> -->
+                        
+                        <strong class="text-white">Feb 2023</strong>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+                    <div class="custom-block-image-wrap">
+                            <img src="{{i.product.image.url}}" class="custom-block-image img-fluid" alt="">
+
+                            <i class="custom-block-icon bi-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 order-3 order-lg-0">
+                    <div class="custom-block-info mt-2 mt-lg-0">
+                        <h3 class="events-title mb-3">{{i.product.name}}</h3>
+                        <p class="mb-0">{{i.product.description}}</p>
+                        <p class="mb-0">{{i.product.date}}</p>
+
+                        <div class="d-flex flex-wrap border-top mt-4 pt-3">
+
+                            <div class="mb-4 mb-lg-0">
+                                <div class="d-flex flex-wrap align-items-center mb-1">
+                                    <!-- <span class="custom-block-span">Location:</span> -->
+
+                                    <p class="mb-0">{{i.product.offer}} </p>
+                                </div>
+
+                                <div class="d-flex flex-wrap align-items-center">
+                                    <span class="custom-block-span">Ticket:</span>
+
+                                    <p class="mb-0">${{i.product.startingrate}}</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center ms-lg-auto">
+                                <a href="{% url 'dlt' i.id %}" class="btn btn-danger my-5">Cancel Ticket</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+{%endfor%}
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
